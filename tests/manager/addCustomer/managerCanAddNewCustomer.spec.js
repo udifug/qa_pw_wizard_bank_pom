@@ -29,7 +29,7 @@ test('Assert manager can add new customer', async ({ page }) => {
     Use the ".last()" locator to get the last row.
   */
  const addCustomerPage = new AddCustomerPage(page);
- const castomersListPage = new CustomersListPage(page);
+ const customersListPage = new CustomersListPage(page);
 
  const user = {
   firstName: faker.person.firstName(),
@@ -47,9 +47,9 @@ test('Assert manager can add new customer', async ({ page }) => {
  await addCustomerPage.reload();
  await addCustomerPage.clickCustomerButton();
 
- await castomersListPage.assertCellIsVisible(user.firstName);
- await castomersListPage.assertCellIsVisible(user.lastName);
- await castomersListPage.assertCellIsVisible(user.postCode);
- await castomersListPage.assertCustomerHasNoAccountNumber(user.firstName);
+ await customersListPage.assertCellIsVisible(user.firstName);
+ await customersListPage.assertCellIsVisible(user.lastName);
+ await customersListPage.assertCellIsVisible(user.postCode);
+ await customersListPage.assertCustomerHasNoAccountNumber(user.firstName);
 
 });

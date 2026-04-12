@@ -3,8 +3,8 @@ import { expect } from '@playwright/test';
 export class CustomersListPage {
   constructor(page) {
     this.page = page;
-    this.searchCastomerField = page.getByPlaceholder('Search Customer');
-    this.customerRow = page.locator('.marTop > div');
+    this.searchCustomerField = page.getByPlaceholder('Search Customer');
+    this.customerRow = page.locator('tbody tr');
   }
 
   async open() {
@@ -34,8 +34,8 @@ export class CustomersListPage {
     await expect(this.page.getByRole('row', { name: firstName }).getByRole('cell').nth(3)).toBeVisible();
   }
 
-  async searchCastomer(firstName){
-    await this.searchCastomerField.fill(firstName);
+  async searchCustomer(firstName){
+    await this.searchCustomerField.fill(firstName);
   }
   async assertHowManyRowIsPresent(value){
     await expect(this.customerRow).toHaveCount(value)

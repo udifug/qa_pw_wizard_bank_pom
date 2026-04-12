@@ -36,10 +36,10 @@ test('Assert manager can search customer by First Name', async ({ page }) => {
   3. Assert customer row is present in the table. 
   4. Assert no other rows is present in the table.
   */
- const castomersListPage = new CustomersListPage(page);
+ const customersListPage = new CustomersListPage(page);
 
- await castomersListPage.open();
- await castomersListPage.searchCastomer(user.firstName)
- await castomersListPage.assertCellIsVisible(user.firstName);
- await castomersListPage.assertHowManyRowIsPresent(1);
+ await customersListPage.open();
+ await customersListPage.searchCastomer(user.firstName)
+ await customersListPage.assertCellIsVisible(user.firstName);
+ await customersListPage.assertHowManyRowIsPresent(1);
 });
