@@ -5,7 +5,10 @@ export class CustomersListPage {
     this.page = page;
     this.searchCustomerField = page.getByPlaceholder('Search Customer');
     this.customerRow = page.locator('tbody tr');
+<<<<<<< HEAD
     
+=======
+>>>>>>> fix-project
   }
 
   async open() {
@@ -35,7 +38,11 @@ export class CustomersListPage {
     await expect(this.page.getByRole('row', { name: firstName }).getByRole('cell').nth(3)).not.toBeEmpty();
   }
 
+<<<<<<< HEAD
   async searchCastomer(firstName){
+=======
+  async searchCustomer(firstName){
+>>>>>>> fix-project
     await this.searchCustomerField.fill(firstName);
   }
   async assertHowManyRowIsPresent(value){
