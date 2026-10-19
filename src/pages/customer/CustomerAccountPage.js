@@ -14,13 +14,13 @@ export class CustomerAccountPage {
     this.transactionsButton = page.getByRole('button', {
       name: 'Transactions',
     });
-    this.withdrawlButton = page.getByRole('button', { name: 'Withdraw' });
+    this.withdrawButton = page.getByRole('button', { name: 'Withdraw' });
     this.amountInputField = page.getByPlaceholder('amount');
     this.depositFormButton = page.getByRole('form').getByRole('button', {
       name: 'Deposit',
     });
     this.depositSuccessfulMessage = page.getByText('Deposit Successful');
-    this.withdrawlFormButton = page.getByRole('form').getByRole('button', {
+    this.withdrawFormButton = page.getByRole('form').getByRole('button', {
       name: 'Withdraw',
     });
     this.withdrawNoBalanceErrorMessage = page.getByText(
@@ -50,8 +50,8 @@ export class CustomerAccountPage {
     await this.transactionsButton.click();
   }
 
-  async clickWithdrawlButton() {
-    await this.withdrawlButton.click();
+  async clickWithdrawButton() {
+    await this.withdrawButton.click();
   }
 
   async fillAmountInputField(amount) {
@@ -62,8 +62,8 @@ export class CustomerAccountPage {
     await this.depositFormButton.click();
   }
 
-  async clickWithdrawlFormButton() {
-    await this.withdrawlFormButton.click();
+  async clickWithdrawFormButton() {
+    await this.withdrawFormButton.click();
   }
 
   async clickLogoutButton() {
@@ -74,7 +74,15 @@ export class CustomerAccountPage {
     await expect(this.depositSuccessfulMessage).toBeVisible();
   }
 
+  async assertLogoutButtonIsVisible() {
+    await expect(this.logoutButton).toBeVisible();
+  }
+
   async assertWithdrawNoBalanceErrorMessageIsVisible() {
     await expect(this.withdrawNoBalanceErrorMessage).toBeVisible();
+  }
+
+  async assertWelcomeMessageIsVisible(name) {
+    await expect(this.page.getByText(`Welcome ${name} !!`)).toBeVisible();
   }
 }
